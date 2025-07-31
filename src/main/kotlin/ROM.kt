@@ -24,10 +24,6 @@ class ROM {
         programCounter = 0
     }
 
-    fun getHexInstruction(address: Int): String {
-        return memory[address].toString(16).uppercase().padStart(4, '0')
-    }
-
     fun readMemory(address: Int): Int {
         if (address >= 0 && address < memory.size) {
             return memory[address]

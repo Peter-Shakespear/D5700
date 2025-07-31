@@ -11,6 +11,7 @@ class CPU(
     var ram: RAM
 ) {
     private val screen = Screen()
+    private val timer = Timer(registers, screen)
     private val instructionFactory = InstructionFactory()
     private val running = AtomicBoolean(false)
     private var scheduler: ScheduledExecutorService? = null

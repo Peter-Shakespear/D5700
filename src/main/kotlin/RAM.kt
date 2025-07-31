@@ -16,17 +16,4 @@ class RAM {
             memory[address] = value
         }
     }
-
-    fun getMemorySize(): Int {
-        return memory.size
-    }
-
-    fun dumpMemory(startAddress: Int = 0, length: Int = 16) {
-        val endAddress = minOf(startAddress + length, memory.size)
-        for (i in startAddress until endAddress) {
-            print("${memory[i].toString(16).padStart(4, '0')} ")
-            if ((i - startAddress + 1) % 8 == 0) println()
-        }
-        println()
-    }
 }
