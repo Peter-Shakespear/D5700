@@ -6,16 +6,14 @@ class Read(instruction: String, registers: Registers, rom: ROM, ram: RAM) : Inst
 
     override fun organizeBytes() {
         val hex = instruction.toInt(16)
-        rX = (hex shr 8) and 0xF  // Second hex digit (register number)
+        rX = (hex shr 8) and 0xF
     }
 
     override fun performOp() {
-        val address = registers.A  // Get address from A register
+        val address = registers.A
         val value = if (registers.M == 1) {
-            // Read from ROM if M = 1
             rom.readMemory(address)
         } else {
-            // Read from RAM if M = 0
             ram.readMemory(address)
         }
         registers.setValue(rX, value)

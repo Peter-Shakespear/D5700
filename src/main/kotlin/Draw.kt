@@ -25,8 +25,6 @@ class Draw(instruction: String, registers: Registers, rom: ROM, ram: RAM, privat
         }
 
         screen.writeCharacter(column, row, character)
-
-        println("Drew '${character.toChar()}' (ASCII $character) at row $row, column $column")
     }
 
     override fun updatePC() {

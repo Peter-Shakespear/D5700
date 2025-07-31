@@ -1,7 +1,6 @@
 package org.example
 
 fun main() {
-   // Create system components
    val registers = Registers()
    val rom = ROM()
    val ram = RAM()

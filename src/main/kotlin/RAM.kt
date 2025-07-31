@@ -2,13 +2,13 @@
 package org.example
 
 class RAM {
-    private val memory = IntArray(4096) // 4KB RAM
+    private val memory = IntArray(4096)
 
     fun readMemory(address: Int): Int {
         if (address >= 0 && address < memory.size) {
             return memory[address]
         }
-        return 0 // Return 0 for invalid addresses
+        return 0
     }
 
     fun writeMemory(address: Int, value: Int) {
@@ -21,7 +21,6 @@ class RAM {
         return memory.size
     }
 
-    // For debugging purposes
     fun dumpMemory(startAddress: Int = 0, length: Int = 16) {
         val endAddress = minOf(startAddress + length, memory.size)
         for (i in startAddress until endAddress) {

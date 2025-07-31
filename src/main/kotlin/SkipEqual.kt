@@ -7,9 +7,8 @@ class SkipEqual(instruction: String, registers: Registers, rom: ROM, ram: RAM) :
 
     override fun organizeBytes() {
         val hex = instruction.toInt(16)
-        rX = (hex shr 8) and 0xF   // Second hex digit (first register)
-        rY = (hex shr 4) and 0xF   // Third hex digit (second register)
-        // Fourth hex digit is always 0 for this instruction
+        rX = (hex shr 8) and 0xF
+        rY = (hex shr 4) and 0xF
     }
 
     override fun performOp() {
@@ -17,10 +16,8 @@ class SkipEqual(instruction: String, registers: Registers, rom: ROM, ram: RAM) :
         val valueY = registers.getValue(rY)
 
         if (valueX == valueY) {
-            // Values are equal, skip the next instruction
             rom.incrementProgramCounter()
         }
-        // If values are not equal, do nothing (just continue to next instruction)
     }
 
     override fun updatePC() {

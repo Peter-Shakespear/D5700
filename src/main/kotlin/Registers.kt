@@ -36,14 +36,6 @@ class Registers (
     var M: Int = M
         private set
 
-    fun setR0(value: Int) { r0 = value }
-    fun setR1(value: Int) { r1 = value }
-    fun setR2(value: Int) { r2 = value }
-    fun setR3(value: Int) { r3 = value }
-    fun setR4(value: Int) { r4 = value }
-    fun setR5(value: Int) { r5 = value }
-    fun setR6(value: Int) { r6 = value }
-    fun setR7(value: Int) { r7 = value }
     fun setT(value: Int) { T = value }
     fun setA(value: Int) { A = value }
     fun setM(value: Int) { M = value }
@@ -64,14 +56,14 @@ class Registers (
 
     fun setValue(registerNumber: Int, value: Int) {
         when (registerNumber) {
-            0 -> setR0(value)
-            1 -> setR1(value)
-            2 -> setR2(value)
-            3 -> setR3(value)
-            4 -> setR4(value)
-            5 -> setR5(value)
-            6 -> setR6(value)
-            7 -> setR7(value)
+            0 -> r0 = value
+            1 -> r1 = value
+            2 -> r2 = value
+            3 -> r3 = value
+            4 -> r4 = value
+            5 -> r5 = value
+            6 -> r6 = value
+            7 -> r7 = value
         }
     }
 }

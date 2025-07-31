@@ -17,7 +17,7 @@ class Subtract(instruction: String, registers: Registers, rom: ROM, ram: RAM) : 
     override fun performOp() {
         val valueX = registers.getValue(rX)
         val valueY = registers.getValue(rY)
-        val result = valueX - valueY  // Subtract rY from rX
+        val result = valueX - valueY
         registers.setValue(rZ, result)
     }
 

@@ -6,7 +6,7 @@ class SetA(instruction: String, registers: Registers, rom: ROM, ram: RAM) : Inst
 
     override fun organizeBytes() {
         val hex = instruction.toInt(16)
-        value = hex and 0xFFF  // Last three hex digits (aaa)
+        value = hex and 0xFFF
     }
 
     override fun performOp() {

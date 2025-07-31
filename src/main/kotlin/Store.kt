@@ -7,8 +7,8 @@ class Store(instruction: String, registers: Registers, rom: ROM, ram: RAM) : Ins
 
     override fun organizeBytes() {
         val hex = instruction.toInt(16)
-        rX = (hex shr 8) and 0xF      // Second hex digit (register number)
-        value = hex and 0xFF          // Last two hex digits (byte value)
+        rX = (hex shr 8) and 0xF
+        value = hex and 0xFF
     }
 
     override fun performOp() {

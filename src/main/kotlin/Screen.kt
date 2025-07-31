@@ -1,7 +1,7 @@
 package org.example
 
 class Screen {
-    private val frameBuffer = IntArray(64) { 32 } // Initialize with space characters (ASCII 32)
+    private val frameBuffer = IntArray(64) { 32 }
 
     private val width = 8
     private val height = 8
@@ -24,7 +24,7 @@ class Screen {
 
     fun clear() {
         for (i in frameBuffer.indices) {
-            frameBuffer[i] = 32 // ASCII space
+            frameBuffer[i] = 32
         }
     }
 

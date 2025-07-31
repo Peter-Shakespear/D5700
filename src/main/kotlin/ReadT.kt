@@ -6,12 +6,12 @@ class ReadT(instruction: String, registers: Registers, rom: ROM, ram: RAM) : Ins
 
     override fun organizeBytes() {
         val hex = instruction.toInt(16)
-        rX = (hex shr 8) and 0xF  // Second hex digit (register number)
+        rX = (hex shr 8) and 0xF
     }
 
     override fun performOp() {
-        val tValue = registers.T  // Get the value from T register
-        registers.setValue(rX, tValue)  // Store it in register rX
+        val tValue = registers.T
+        registers.setValue(rX, tValue)
     }
 
     override fun updatePC() {

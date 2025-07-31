@@ -9,7 +9,7 @@ class ReadKeyboard(instruction: String, registers: Registers, rom: ROM, ram: RAM
     }
 
     override fun performOp() {
-        print("Enter hexadecimal value for r$rX: ")
+        print("Enter hexadecimal value: ")
         val input = readLine()?.trim()?.uppercase() ?: "0"
 
         val value = try {
@@ -20,7 +20,6 @@ class ReadKeyboard(instruction: String, registers: Registers, rom: ROM, ram: RAM
         }
 
         registers.setValue(rX, value)
-        println("Set r$rX = $value (0x${value.toString(16).uppercase()})")
     }
 
     override fun updatePC() {

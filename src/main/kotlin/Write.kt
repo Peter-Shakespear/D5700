@@ -6,18 +6,16 @@ class Write(instruction: String, registers: Registers, rom: ROM, ram: RAM) : Ins
 
     override fun organizeBytes() {
         val hex = instruction.toInt(16)
-        rX = (hex shr 8) and 0xF  // Second hex digit (register number)
+        rX = (hex shr 8) and 0xF
     }
 
     override fun performOp() {
-        val address = registers.A      // Get address from A register
-        val value = registers.getValue(rX)  // Get value from register rX
+        val address = registers.A
+        val value = registers.getValue(rX)
 
         if (registers.M == 1) {
-            // Write to ROM if M = 1 (may fail for most ROM chips)
             rom.writeMemory(address, value)
         } else {
-            // Write to RAM if M = 0
             ram.writeMemory(address, value)
         }
     }

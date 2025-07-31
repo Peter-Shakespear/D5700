@@ -25,11 +25,7 @@ class ConvertByteToAscii(instruction: String, registers: Registers, rom: ROM, ra
             else -> throw RuntimeException("Invalid hex digit: $value")
         }
 
-        // Store ASCII value in rY only
         registers.setValue(rY, asciiValue)
-
-        val character = asciiValue.toChar()
-        println("Converted hex digit $value to ASCII '$character' ($asciiValue) in r$rY")
     }
 
     override fun updatePC() {
