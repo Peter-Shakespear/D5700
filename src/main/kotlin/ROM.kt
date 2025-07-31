@@ -49,6 +49,10 @@ class ROM {
         return programCounter
     }
 
+    fun getProgramSize(): Int {
+        return memory.size
+    }
+
     fun writeMemory(address: Int, value: Int): Boolean {
         return if (isWritable && address >= 0 && address < memory.size) {
             memory[address] = value
