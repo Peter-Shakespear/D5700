@@ -1,7 +1,13 @@
 package org.example
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 fun main() {
-   println("Hello World!")
+   println("Type in the path to the rom file:")
+   val romPath = readLine()
+
+   if (romPath != null && romPath.isNotEmpty()) {
+      val cpu = CPU()
+      cpu.executeProgram(romPath)
+   } else {
+      println("No file path provided")
+   }
 }
