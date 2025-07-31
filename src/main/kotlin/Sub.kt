@@ -1,7 +1,7 @@
 
 package org.example
 
-class Add(instruction: String, registers: Registers, rom: ROM, ram: RAM) : Instruction(instruction, registers, rom, ram) {
+class Subtract(instruction: String, registers: Registers, rom: ROM, ram: RAM) : Instruction(instruction, registers, rom, ram) {
 
     private var rX: Int = 0
     private var rY: Int = 0
@@ -17,7 +17,7 @@ class Add(instruction: String, registers: Registers, rom: ROM, ram: RAM) : Instr
     override fun performOp() {
         val valueX = registers.getValue(rX)
         val valueY = registers.getValue(rY)
-        val result = valueX + valueY
+        val result = valueX - valueY  // Subtract rY from rX
         registers.setValue(rZ, result)
     }
 

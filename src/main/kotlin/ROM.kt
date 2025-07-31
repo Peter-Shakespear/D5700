@@ -5,6 +5,8 @@ import java.io.File
 class ROM {
     private val memory = IntArray(4096) // 4KB ROM
     private var programCounter = 0 // Points to the next instruction
+    private var isWritable = false
+
 
     fun loadProgram(filename: String) {
         val bytes = File(filename).readBytes()
@@ -28,25 +30,39 @@ class ROM {
         return memory[address].toString(16).uppercase().padStart(4, '0')
     }
 
-    fun getCurrentInstruction(): String {
-        return getHexInstruction(programCounter)
+    fun readMemory(address: Int): Int {
+        if (address >= 0 && address < memory.size) {
+            return memory[address]
+        }
+        return 0 // Return 0 for invalid addresses
     }
 
-    fun fetchNextInstruction(): String {
-        val instruction = getHexInstruction(programCounter)
+    fun incrementProgramCounter() {
         programCounter++
-        return instruction
-    }
-
-    fun getProgramCounter(): Int {
-        return programCounter
     }
 
     fun setProgramCounter(address: Int) {
         programCounter = address
     }
 
-    fun incrementProgramCounter() {
-        programCounter++
+    fun getProgramCounter(): Int {
+        return programCounter
+    }
+
+    fun writeMemory(address: Int, value: Int): Boolean {
+        return if (isWritable && address >= 0 && address < memory.size) {
+            memory[address] = value
+            true // Write successful
+        } else {
+            false // Write failed (ROM is read-only or invalid address)
+        }
+    }
+
+    fun setWritable(writable: Boolean) {
+        isWritable = writable
+    }
+
+    fun isWritable(): Boolean {
+        return isWritable
     }
 }
